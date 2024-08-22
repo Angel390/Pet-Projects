@@ -20,7 +20,7 @@ def read_prices():
         for line in lines:
             destination, total_price = line.strip().split('|')
             print(f"Destination/description: {destination}")
-            print(f"Cost: {total_price}")
+            print(f"Cost: ${total_price}")
 
 def clear_gas_file():
     with open("gas.txt", "w") as file:
