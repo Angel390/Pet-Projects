@@ -9,7 +9,7 @@ def calculate():
         total_price = miles_input / mpg_input * price_input
         total_price = round(total_price, 2)
         with open("gas.txt", "a") as file:
-            file.write(f"{destination}|{total_price}\n")
+            file.write(f"{destination}|{total_price}|{miles_input}|{mpg_input}|{price_input}\n")
         print(f"Total price: ${total_price:.2f}")
     except ValueError:
         print("Invalid input! Please enter a numeric value.")
@@ -18,9 +18,9 @@ def read_prices():
     with open("gas.txt", "r") as file:
         lines = file.readlines()
         for line in lines:
-            destination, total_price = line.strip().split('|')
-            print(f"Destination/description: {destination}")
-            print(f"Cost: ${total_price}")
+            destination, total_price, miles_input, mpg_input, price_input = line.strip().split('|')
+            print(f"Description(Destination)/Distance/MPG: {destination}/{miles_input}/{mpg_input}")
+            print(f"Cost/Price Per Gallon: ${total_price}/${price_input}")
 
 def clear_gas_file():
     with open("gas.txt", "w") as file:
