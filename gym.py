@@ -1,11 +1,11 @@
 import random
 
 def generate():
-    days = ["Tuesday","Thursday","Friday","Saturday"]
+    days = ["Tuesday","Wednesday","Friday","Saturday"]
     group = ["Arms","Chest","Shoulders","Back"]
     random.shuffle(group)
     shuffled = [f"{day}: {grp}" for day, grp in zip(days, group)]
-    shuffled.insert(1, "Wednesday: Legs") 
+    shuffled.insert(2, "Thursday: Legs") 
     result = ", ".join(shuffled)
     with open("schedule.txt", "a") as file:
         file.write(f"{result}\n")
