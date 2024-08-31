@@ -7,18 +7,18 @@ def generate():
     shuffled = [f"{day}: {grp}" for day, grp in zip(days, group)]
     shuffled.insert(2, "Thursday: Legs") 
     result = ", ".join(shuffled)
-    with open("schedule.txt", "a") as file:
+    with open("gym_schedule.txt", "a") as file:
         file.write(f"{result}\n")
     print(result)
 
 def read_file():
-    with open("schedule.txt", "r") as file:
+    with open("gym_schedule.txt", "r") as file:
         lines = file.readlines()
         for line in lines:
             print(line)
 
 def clear_file():
-    with open("schedule.txt", "w") as file:
+    with open("gym_schedule", "w") as file:
         pass
 
 def display_menu():
