@@ -1,11 +1,13 @@
 import random
 
 def generate():
-    days = ["Tuesday","Wednesday","Friday","Saturday"]
+    days = ["Monday","Tuesday","Wednesday","Friday"]
     group = ["Arms","Chest","Shoulders","Back"]
     random.shuffle(group)
     shuffled = [f"{day}: {grp}" for day, grp in zip(days, group)]
-    shuffled.insert(2, "Thursday: Legs") 
+    shuffled.insert(3, "Thursday: Legs") 
+    shuffled.insert(5, "Saturday: Free")
+    shuffled.insert(6, "Sunday: Free/Rest")
     result = ", ".join(shuffled)
     with open("gym_schedule.txt", "a") as file:
         file.write(f"{result}\n")
@@ -18,7 +20,7 @@ def read_file():
             print(line)
 
 def clear_file():
-    with open("gym_schedule", "w") as file:
+    with open("gym_schedule.txt", "w") as file:
         pass
 
 def display_menu():
