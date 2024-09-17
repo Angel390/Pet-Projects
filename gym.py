@@ -1,11 +1,10 @@
 import random
 
 def generate():
-    days = ["Monday","Tuesday","Wednesday","Friday"]
-    group = ["Arms","Chest","Shoulders","Back"]
+    days = ["Monday","Tuesday","Wednesday","Thursday","Friday"]
+    group = ["Arms","Chest","Shoulders","Back","Legs"]
     random.shuffle(group)
     shuffled = [f"{day}: {grp}" for day, grp in zip(days, group)]
-    shuffled.insert(3, "Thursday: Legs") 
     shuffled.insert(5, "Saturday: Free")
     shuffled.insert(6, "Sunday: Free/Rest")
     result = ", ".join(shuffled)
