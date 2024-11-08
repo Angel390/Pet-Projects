@@ -6,7 +6,7 @@ def generate():
     random.shuffle(group)
     shuffled = [f"{day}: {grp}" for day, grp in zip(days, group)]
     shuffled.insert(5, "Saturday: Free")
-    shuffled.insert(6, "Sunday: Free/Rest")
+    shuffled.insert(6, "Sunday: Free")
     result = ", ".join(shuffled)
     with open("gym_schedule.txt", "a") as file:
         file.write(f"{result}\n")
@@ -36,6 +36,7 @@ def main():
         3: clear_file,
     }
     while True:
+        print("Legs now included with other muscle groups")
         display_menu()
         try:
             mode = int(input("Please enter your choice: "))
