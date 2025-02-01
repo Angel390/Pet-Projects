@@ -1,22 +1,26 @@
 import random
 
-def generate():
-    days = ["Monday","Tuesday","Wednesday","Thursday","Friday"]
+def generate(days, groups):
+    days = ["Day 1","Day 2","Day 3","Day 4","Day 5"]
     group = ["Arms","Chest","Shoulders","Back","Legs"]
     random.shuffle(group)
     shuffled = [f"{day}: {grp}" for day, grp in zip(days, group)]
-    shuffled.insert(5, "Saturday: Free")
-    shuffled.insert(6, "Sunday: Free")
     result = ", ".join(shuffled)
     with open("gym_schedule.txt", "a") as file:
         file.write(f"{result}\n")
     print(result)
 
 def read_file():
-    with open("gym_schedule.txt", "r") as file:
-        lines = file.readlines()
-        for line in lines:
-            print(line)
+    try:
+        with open("gym_schedule.txt", "r") as file:
+            lines = file.readlines()
+            if len(lines) == 0:
+                print("The file is empty")
+                return
+            for line in lines:
+                print(line.strip())
+    except FileNotFoundError:
+        print("The file does not exist. Please generate a schedule first")
 
 def clear_file():
     with open("gym_schedule.txt", "w") as file:
@@ -36,7 +40,6 @@ def main():
         3: clear_file,
     }
     while True:
-        print("Legs now included with other muscle groups")
         display_menu()
         try:
             mode = int(input("Please enter your choice: "))
@@ -46,9 +49,9 @@ def main():
                 print("Exiting the generator.")
                 break
             else:
-                print("Invalid input!")
+                print("Invalid option. Please choose from 0 to 3")
         except ValueError:
-            print("Invalid input! Please enter a numeric value.")
+            print("Invalid input! Please enter a numeric value between 0 and 3.")
 
 if __name__ == "__main__":
     main()
