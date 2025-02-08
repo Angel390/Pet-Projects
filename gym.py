@@ -1,6 +1,6 @@
 import random
 
-def generate(days, groups):
+def generate():
     days = ["Day 1","Day 2","Day 3","Day 4","Day 5"]
     group = ["Arms","Chest","Shoulders","Back","Legs"]
     random.shuffle(group)
