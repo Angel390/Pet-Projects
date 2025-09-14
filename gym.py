@@ -2,7 +2,7 @@ import random
 
 def generate():
     days = ["Day 1","Day 2","Day 3","Day 4"]
-    group = ["Arms","Chest","Shoulders","Back"]
+    group = ["Legs","Chest","Shoulders","Back"]
     random.shuffle(group)
     shuffled = [f"{day}: {grp}" for day, grp in zip(days, group)]
     result = ", ".join(shuffled)
@@ -27,7 +27,7 @@ def clear_file():
         pass
 
 def display_menu():
-    print("Legs are combined with other muscle groups")
+    print("Arms are combined with other muscle groups")
     print("Options:")
     print("1 - Generate schedule")
     print("2 - Read the schedule file")
