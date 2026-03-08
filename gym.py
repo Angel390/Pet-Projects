@@ -2,17 +2,17 @@ import random
 
 def generate():
     days = ["Day 1","Day 2","Day 3","Day 4"]
-    group = ["Legs","Chest","Shoulders","Back"]
+    group = ["Lower Body","Chest","Shoulders","Back"]
     random.shuffle(group)
     shuffled = [f"{day}: {grp}" for day, grp in zip(days, group)]
     result = ", ".join(shuffled)
-    with open("gym_schedule.txt", "a") as file:
+    with open("gym_schedule.csv", "a") as file:
         file.write(f"{result}\n")
     print(result)
 
 def read_file():
     try:
-        with open("gym_schedule.txt", "r") as file:
+        with open("gym_schedule.csv", "r") as file:
             lines = file.readlines()
             if len(lines) == 0:
                 print("The file is empty")
@@ -23,7 +23,7 @@ def read_file():
         print("The file does not exist. Please generate a schedule first")
 
 def clear_file():
-    with open("gym_schedule.txt", "w") as file:
+    with open("gym_schedule.csv", "w") as file:
         pass
 
 def display_menu():
